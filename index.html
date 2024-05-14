@@ -18,7 +18,7 @@
             <div class="card">
                 <img src="./imagens/infinity_school.jpg" alt="Curso 1" class="card-img">
                 <div class="card-content">
-                    <h2>Curso de Programação Básica Super-intenssivo</h2>
+                    <h2>Curso de Programação Básico Super-intenssivo</h2>
                     <p>Aprenda os fundamentos da programação com este curso completo com duração de 06 meses.</p>
                     <span class="valor">R$ 799,00</span>
                     <button class="btn">Assinar</button>
@@ -46,17 +46,71 @@
             </div>
             
         </main>
-        <form class="formulario">
-            <label for="nome">Nome</label>
-            <input type="text" id="nome"> 
 
-            <label for="telefone">Telefone</label>
-            <input type="tel" id="Telefone">
-
-            <label for="email">E-mail</label>
-            <input type="email" id="nome">
-            <button class="btn" type="submit">ENVIAR</button>
-        </form>
+        <section class="promotion-clock">
+            <h2>Período de Promoção</h2>
+            <p id="clock"></p>
+        
+        
+        <script>
+            function startCountdown() {
+                const countdownElement = document.getElementById('clock');
+                let timeLeft = {
+                    weeks: 2,
+                    days: 3,
+                    hours: 2,
+                    minutes: 5,
+                    seconds: 25
+                };
+        
+                const countdownInterval = setInterval(() => {
+                    if (timeLeft.seconds === 0 && timeLeft.minutes === 0 && timeLeft.hours === 0 && timeLeft.days === 0 && timeLeft.weeks === 0) {
+                        clearInterval(countdownInterval);
+                        countdownElement.innerHTML = "Tempo de promoção terminou!";
+                    } else {
+                        if (timeLeft.seconds > 0) {
+                            timeLeft.seconds--;
+                        } else if (timeLeft.minutes > 0) {
+                            timeLeft.minutes--;
+                            timeLeft.seconds = 59;
+                        } else if (timeLeft.hours > 0) {
+                            timeLeft.hours--;
+                            timeLeft.minutes = 59;
+                            timeLeft.seconds = 59;
+                        } else if (timeLeft.days > 0) {
+                            timeLeft.days--;
+                            timeLeft.hours = 23;
+                            timeLeft.minutes = 59;
+                            timeLeft.seconds = 59;
+                        } else if (timeLeft.weeks > 0) {
+                            timeLeft.weeks--;
+                            timeLeft.days = 7;
+                            timeLeft.hours = 23;
+                            timeLeft.minutes = 59;
+                            timeLeft.seconds = 59;
+                        }
+        
+                        countdownElement.innerHTML = `${timeLeft.weeks} semanas, ${timeLeft.days} dias, ${timeLeft.hours} horas, ${timeLeft.minutes} minutos e ${timeLeft.seconds} segundos`;
+                    }
+                }, 1000);
+            }
+        
+            startCountdown();
+        </script>
+        
+        <div class="card">
+            <div class="card-content">
+                <h2 >Formulario de Inscrição</h2>
+                <label for="">Nome</label>
+                <input type="text">
+                <label for="">Telefone</label>
+                <input type="number">
+                <LAbel>Email</LAbel>
+                <input type="email">
+                <button class="btn">REGISTRE-SE AGORA</button>
+            </div>
+        </div>
+    </section>
     
         <footer>
             <p>
